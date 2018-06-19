@@ -15,11 +15,6 @@ public class EchoVerticleServer extends AbstractVerticle {
                     .putHeader("content-type", "text/plain")
                     .end("Hello from Vert.x!");
         }).listen(8080);
-        long timerID = vertx.setPeriodic(3000, id -> {
-            System.out.println("And every second this is printed "+id);
-        });
-
-        System.out.println("First this is printed "+timerID);
     }
 
     public static void main(String[] strs){
