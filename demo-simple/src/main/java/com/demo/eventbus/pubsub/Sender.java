@@ -13,18 +13,19 @@ import java.util.function.Consumer;
 public class Sender  extends AbstractVerticle {
 
     public static void main(String[] srcs){
-        Consumer<Vertx> runner = vertx -> {
+        /*Consumer<Vertx> runner = vertx -> {
             try {
                 vertx.deployVerticle(new Sender());
             } catch (Throwable t) {
                 t.printStackTrace();
             }
-        };
+        };*/
 
         Vertx.clusteredVertx(new VertxOptions().setClustered(true), res -> {
             if (res.succeeded()) {
                 Vertx vertx = res.result();
-                runner.accept(vertx);
+                vertx.deployVerticle(new Sender());
+                //runner.accept(vertx);
             } else {
                 res.cause().printStackTrace();
             }
@@ -36,6 +37,8 @@ public class Sender  extends AbstractVerticle {
         EventBus eventBus = vertx.eventBus();
 
 
-        vertx.setPeriodic(1000, v -> eventBus.publish("my-event", "Some news!"));
+        vertx.setPeriodic(1000, v -> {
+            eventBus.publish("my-event", "Some news!");
+        });
     }
 }

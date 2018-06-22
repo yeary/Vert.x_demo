@@ -38,7 +38,7 @@ public class Reciver extends AbstractVerticle{
     public void start(Future<Void> startFuture) throws Exception {
         EventBus eventBus = vertx.eventBus();
         eventBus.consumer("my-event", msg->{
-            System.out.println("Received news on consumer, msg is [ "+ msg+" ]");
+            System.out.println("Received news on consumer, msg is [ "+ msg.body()+" ]");
         });
 
     }

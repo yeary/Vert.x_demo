@@ -1,36 +1,17 @@
-# maven ignore
-target/
-*.jar
-!.mvn/wrapper/*
-*.war
-*.zip
-*.tar
-*.tar.gz
-
-# eclipse ignore
-.settings/
-.project
+/target
+/target/**
 .classpath
+.project
+/.settings
+/.settings/**
+/.idea
+/.idea/**
+/*.iml
 
-# idea ignore
-.idea/
-*.ipr
+**/target
+**/target/**
+**/.classpath
+**/.project
+.settings
+**/.settings/**
 *.iml
-*.iws
-
-# temp ignore
-*.log
-*.cache
-*.diff
-*.patch
-*.tmp
-
-# system ignore
-.DS_Store
-Thumbs.db
-node_modules/
-output/
-venv/
-.factorypath
-*.csv
-.vscode/
