@@ -20,7 +20,16 @@ import java.util.function.Consumer;
  */
 public class NotifyReciver extends AbstractVerticle{
 
-    public NotifyReciver(){
+    @Override
+    public void start(Future<Void> startFuture) throws Exception {
+        EventBus eventBus = vertx.eventBus();
+        eventBus.consumer("out-event", msg->{
+            System.out.println("Received news on consumer, msg is [ "+ msg.body()+" ]");
+        });
+
+    }
+
+    public static void main(String[] srcs){
         Config cfg = null;
         try (InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("outside_cluster.xml");
              InputStream bis = new BufferedInputStream(is)) {
@@ -34,23 +43,10 @@ public class NotifyReciver extends AbstractVerticle{
         Vertx.clusteredVertx(new VertxOptions().setClustered(true).setClusterManager(clusterManager), res -> {
             if (res.succeeded()) {
                 Vertx vertx = res.result();
-                vertx.deployVerticle(this);
+                vertx.deployVerticle(new NotifyReciver());
             } else {
                 res.cause().printStackTrace();
             }
         });
-    }
-
-    @Override
-    public void start(Future<Void> startFuture) throws Exception {
-        EventBus eventBus = vertx.eventBus();
-        eventBus.consumer("out-event", msg->{
-            System.out.println("Received news on consumer, msg is [ "+ msg.body()+" ]");
-        });
-
-    }
-
-    public static void main(String[] srcs){
-        NotifyReciver NotifyReciver = new NotifyReciver();
     }
 }
