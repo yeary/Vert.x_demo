@@ -1,6 +1,6 @@
 package com.demo.spring.example.context;
 
-import com.demo.spring.example.handle.NameSpaceHandler;
+import com.demo.spring.example.spring.config.UccConfigManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -10,11 +10,12 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan("com.demo.spring.example")
+@UccConfigManager
 public class ExampleSpringConfiguration {
 
     @Bean
-    public NameSpaceHandler nameSpaceHandler(){
-        return new NameSpaceHandler();
+    public InitUccAnnotationBean initUccAnnotationBean(){
+        return new InitUccAnnotationBean();
     }
 
 }

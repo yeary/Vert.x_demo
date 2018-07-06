@@ -12,6 +12,7 @@
         <module>demo-simple</module>
         <module>demo-web</module>
         <module>demo-spring</module>
+        <module>demo-client</module>
     </modules>
 
 
