@@ -1,8 +1,7 @@
 package com.demo.spring.example.spring.config;
 
 import com.demo.spring.example.config.ConfigSource;
-import com.demo.spring.example.spring.config.AbstractProcessor;
-import com.demo.spring.example.spring.config.UccConfigSource;
+import com.demo.spring.example.context.ExampleSpringConfiguration;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.ReflectionUtils;
 

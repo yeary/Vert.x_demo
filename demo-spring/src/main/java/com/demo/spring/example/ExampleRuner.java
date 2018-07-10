@@ -17,7 +17,8 @@ public class ExampleRuner {
 
     public static void main(String[] srcs){
         ApplicationContext context = new AnnotationConfigApplicationContext(ExampleSpringConfiguration.class);
-        InitUccAnnotationBean initUccAnnotationBean = (InitUccAnnotationBean)context.getBean("initUccAnnotationBean");
-        System.out.println(JSON.toJSON(initUccAnnotationBean.getXxAdfConfigSource()));
+        //InitUccAnnotationBean initUccAnnotationBean = (InitUccAnnotationBean)context.getBean("initUccAnnotationBean");
+        //System.out.println(JSON.toJSON(initUccAnnotationBean.getXxAdfConfigSource()));
+        System.out.println(JSON.toJSON(context.getBean("configSource")));
     }
 }
