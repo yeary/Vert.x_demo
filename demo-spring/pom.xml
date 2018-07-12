@@ -59,16 +59,6 @@
             <artifactId>spring-context</artifactId>
             <version>${spring_version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.jd.security.configsec</groupId>
-            <artifactId>spring-configsec-sdk</artifactId>
-            <version>1.0.3-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.19.0-GA</version>
-        </dependency>
     </dependencies>
 
     <profiles>
