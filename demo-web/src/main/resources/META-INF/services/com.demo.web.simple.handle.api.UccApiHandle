@@ -1,0 +1,4 @@
+com.demo.web.simple.handle.api.namespace.NamespaceGetHandle
+com.demo.web.simple.handle.api.namespace.NamespaceAddHandle
+com.demo.web.simple.handle.api.ValidateHandle
+com.demo.web.simple.handle.api.ErrorHandle
