@@ -24,6 +24,7 @@ public class WebEchoArticle extends AbstractVerticle {
     static {
         ServiceLoader<UccApiHandle> serviceLoader = ServiceLoader.load(UccApiHandle.class);
         for (UccApiHandle apiHandle : serviceLoader) {
+            System.out.println(apiHandle.getClass().getName());
             apiHandleMap.put(apiHandle.getHandleName(), apiHandle);
         }
         routeMappings.addAll(RouteMappingPropertyUtil.getRouteMappings());

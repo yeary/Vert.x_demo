@@ -1,7 +1,7 @@
 package com.demo.web.simple.comment.utils;
 
-import com.demo.web.simple.route.HttpMethodEnum;
 import com.demo.web.simple.route.RouteMapping;
+import io.vertx.core.http.HttpMethod;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +36,7 @@ public class RouteMappingPropertyUtil {
         String property = (String) properties.get(key);
         if (property != null && !property.isEmpty()) {
             String[] rmapStrs = property.split("#");
-            RouteMapping mapping = new RouteMapping(rmapStrs[0], HttpMethodEnum.valueOf(rmapStrs[1]), rmapStrs[2].split(","));
+            RouteMapping mapping = new RouteMapping(rmapStrs[0], HttpMethod.valueOf(rmapStrs[1]), rmapStrs[2].split(","));
             return mapping;
         }
         return null;

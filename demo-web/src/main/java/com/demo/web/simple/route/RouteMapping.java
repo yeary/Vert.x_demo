@@ -1,18 +1,20 @@
 package com.demo.web.simple.route;
 
+import io.vertx.core.http.HttpMethod;
+
 /**
  * Created by yangyang115 on 18-7-14.
  */
 public class RouteMapping {
 
     private String path;
-    private HttpMethodEnum method;
+    private HttpMethod method;
     private String[] handles;
 
     public RouteMapping() {
     }
 
-    public RouteMapping(String path, HttpMethodEnum method, String[] handles) {
+    public RouteMapping(String path, HttpMethod method, String[] handles) {
         this.path = path;
         this.method = method;
         this.handles = handles;
@@ -26,11 +28,11 @@ public class RouteMapping {
         this.path = path;
     }
 
-    public HttpMethodEnum getMethod() {
+    public HttpMethod getMethod() {
         return method;
     }
 
-    public void setMethod(HttpMethodEnum method) {
+    public void setMethod(HttpMethod method) {
         this.method = method;
     }
 
